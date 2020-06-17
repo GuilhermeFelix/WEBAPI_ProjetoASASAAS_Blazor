@@ -1,0 +1,40 @@
+﻿@page "/newinstance"
+
+<h1>Configure seu novo modulo!</h1>
+
+ <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Usuario</th>
+                <th>Email</th>
+                <th>modulo</th>
+                <th>IPV4</th>
+                <th>PORT</th>
+                <th>TAG</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var forecast in forecasts)
+            {
+                <tr>
+                    <td>@forecast.Date.ToShortDateString()</td>
+                    <td>@forecast.TemperatureC</td>
+                    <td>@forecast.TemperatureF</td>
+                    <td>@forecast.Summary</td>
+                </tr>
+            }
+        </tbody>
+</table>
+
+
+
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

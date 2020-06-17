@@ -1,0 +1,89 @@
+@page "/newsaas"
+
+<h3>Criar novo modulo:</h3>
+
+<EditForm Model="New" OnSubmit="Novo">
+<div class="form-group">
+
+<div class="row">
+    <div class="col-sm-8">
+
+        <label>Usuario:</label>
+        <div>
+        <InputText class="form-control" @bind-Value="@New.Name"/>
+        </div>
+
+        <label>Email:</label>
+        <div>
+        <InputText class="form-control" @bind-Value="@New.Email" placeholder="nome@exemplo.com"/>
+        </div>
+
+        <div><label>TAG:</label>
+            <InputText class="form-control" @bind-Value="@New.TAG"/></div>
+        <p></p><div>
+    </div>
+</div>
+    <p>
+    <p></p>
+<div class="row">
+    <div class="col-sm-4">
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="CRM_Start">
+        <label class="form-check-label" for="@New.Crm_START">CRM</label>
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="Faturamento_Start" checked disabled>
+        <label class="form-check-label" for="@New.Faturamento_START">Faturamento</label>
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="Vendas_Start" checked disabled>
+        <label class="form-check-label" for="@New.Vendas_START">Vendas</label>
+    </div>
+    <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="Site_Start" checked disabled>
+                <label class="form-check-label" for="@New.Site_START">Site</label>
+    </div>
+    </div>
+</div>  
+    </p>
+<div class="row">
+  </div>
+    <div class="col-sm-5">
+    <div><label>Numero de licenças de Usuario:</label></div>
+
+    <div>
+        <InputNumber class="form-control" @bind-Value="@New.LICENSES"/>
+    </div>
+    <p></p>
+
+    <div>
+        <div><label>IP SERVIDOR - "OBS: CAMPO TEMPORARIO"</label>
+            <InputText class="form-control" @bind-Value="@New.IPV4"/>
+        <p></p><div>
+       <div><label>PORTA ODOO - "OBS: CAMPO TEMPORARIO"</label>    
+            <InputNumber class="form-control" @bind-Value="@New.PORT"/>
+        </div>
+    </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+
+<button class="btn btn-danger" type="submit">Criar modulo</button>
+
+
+</EditForm>
+
+@code{
+    private Frontend.imanager.Entities.NewSaas New = new Frontend.imanager.Entities.NewSaas();
+    private void Novo()
+    {
+        Console.WriteLine("Executando criação de modulo SAAS");
+        Console.WriteLine($"Usuario: {New.Name}");
+    }
+
+
+}
+    
+
